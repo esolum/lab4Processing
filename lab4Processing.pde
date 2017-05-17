@@ -12,7 +12,6 @@ Pig pig;
 
 void setup() {
   size(800, 600);
-  //background(0, 0, 139);
   frameRate(24);
   
   pig = new Pig(0);
@@ -20,12 +19,10 @@ void setup() {
 
 void draw() {
   background(0, 0, 139);
-  
+  drawPlatform();
   moveObject();
   confineToEdges();
   displayObject();
-  //pig.display(300, 200);
-  
 }
 
 void keyPressed() {
@@ -49,9 +46,15 @@ static final void moveObject() {
 
 static final void confineToEdges() {
   x = constrain(x, 0, 800);
-  y = constrain(y, 0, 600);
+  y = constrain(y, 350, 600);
 }
 
 void displayObject() {
   pig.display(x, y);
+}
+
+void drawPlatform() {
+  stroke(153);
+  fill(153);
+  rect(0, 400, 800, 200);
 }
