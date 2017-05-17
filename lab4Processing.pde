@@ -45,7 +45,7 @@ static final void moveObject() {
 }
 
 static final void confineToEdges() {
-  x = constrain(x, 0, 800);
+  x = constrain(x, 0, 720);
   y = constrain(y, 350, 600);
 }
 
