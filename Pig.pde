@@ -4,7 +4,7 @@ class Pig {
   int accLevel;
   
   Pig(int accLevel) {
-    image = loadImage("images/standingLeft.png");
+    image = loadImage("images/pigSprites/standingLeft.png");
     this.accLevel = accLevel;
   }
   
