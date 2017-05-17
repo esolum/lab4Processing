@@ -3,7 +3,7 @@ static int w, h;
 static int ww, hh;
 static int gw, gh;
 
-final static byte dx = 15;
+final static byte dx = 5;
 
 static boolean left, right, up;
 static boolean jumping = false;
@@ -15,7 +15,7 @@ static Direction dir;
 
 void setup() {
   size(800, 600);
-  frameRate(24);
+  frameRate(30);
   bg = loadImage("images/magic.jpeg");
   pig = new Pig(0);
 }

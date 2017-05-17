@@ -30,7 +30,7 @@ class Pig {
     jumpLeftDown = loadImage("images/pigSprites/jumpLeft2.png");
     leftCounter = 0;
     rightCounter = 0;
-    walkSpeed = 25;
+    walkSpeed = 20;
     this.accLevel = accLevel;
   }
   
@@ -54,9 +54,7 @@ class Pig {
   
   void drawRight(float xPos, float yPos) {
     rightCounter++;
-    println("Hello " + rightCounter%walkSpeed);
     if((rightCounter % walkSpeed) > (walkSpeed/2)) {
-        println("Goodbye");
         image(walkingRight2, xPos, yPos);
         
       }
