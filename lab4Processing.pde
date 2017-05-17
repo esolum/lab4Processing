@@ -35,6 +35,7 @@ void keyPressed() {
 
 void keyReleased() {
   //setDirection(keyCode, false);
+  //println("KEY RELEASED");
   if(keyCode == LEFT) {
     dir = Direction.LEFT_STANDING;
   }
@@ -78,6 +79,7 @@ void displayObject() {
     pig.drawRight(x, y);
   }
   else {
+    //println("Standstandstand");
     pig.drawStanding(x,y, dir);
   }
   
