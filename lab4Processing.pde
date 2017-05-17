@@ -7,18 +7,19 @@ final static byte dx = 15;
 
 static boolean left, right, up;
 
+PImage bg;
 
 Pig pig;
 
 void setup() {
   size(800, 600);
   frameRate(24);
-  
+  bg = loadImage("images/magic.jpeg");
   pig = new Pig(0);
 }
 
 void draw() {
-  background(0, 0, 139);
+  background(bg);
   drawPlatform();
   moveObject();
   confineToEdges();
@@ -46,7 +47,7 @@ static final void moveObject() {
 
 static final void confineToEdges() {
   x = constrain(x, 0, 720);
-  y = constrain(y, 350, 600);
+  y = constrain(y, 450, 600);
 }
 
 void displayObject() {
@@ -56,5 +57,5 @@ void displayObject() {
 void drawPlatform() {
   stroke(153);
   fill(153);
-  rect(0, 400, 800, 200);
+  rect(0, 500, 800, 200);
 }
