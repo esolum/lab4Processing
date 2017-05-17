@@ -6,10 +6,12 @@ static int gw, gh;
 final static byte dx = 15;
 
 static boolean left, right, up;
+static boolean jumping = false;
 
 PImage bg;
 
 Pig pig;
+static Direction dir;
 
 void setup() {
   size(800, 600);
@@ -32,17 +34,35 @@ void keyPressed() {
 }
 
 void keyReleased() {
-  setDirection(keyCode, false);
+  //setDirection(keyCode, false);
+  if(keyCode == LEFT) {
+    dir = Direction.LEFT_STANDING;
+  }
+  
+  if(keyCode == RIGHT) {
+    dir = Direction.RIGHT_STANDING;
+  }
+  
+  
 }
 
 static final void setDirection(int k, boolean decision) {
-  if      (k == UP)    up = decision;
-  else if (k == LEFT)  left = decision; 
-  else if (k == RIGHT) right = decision;
+  if (k == UP && !jumping) {
+    jumping = true;
+  }
+  else if(k == LEFT) {
+    dir = Direction.LEFT;
+  }
+  else if(k == RIGHT) {
+    dir = Direction.RIGHT;
+  }
+  //if      (k == UP)    up = decision;
+  //else if (k == LEFT)  left = decision; 
+  //else if (k == RIGHT) right = decision;
 }
 
 static final void moveObject() {
-  x += (right? dx : 0) - (left? dx : 0);
+  x += (dir == Direction.RIGHT? dx : 0) - (dir == Direction.LEFT? dx : 0);
 }
 
 static final void confineToEdges() {
@@ -51,7 +71,16 @@ static final void confineToEdges() {
 }
 
 void displayObject() {
-  pig.display(x, y);
+  if(dir == Direction.LEFT) {
+    pig.drawLeft(x, y);
+  }
+  else if(dir == Direction.RIGHT) {
+    pig.drawRight(x, y);
+  }
+  else {
+    pig.drawStanding(x,y, dir);
+  }
+  
 }
 
 void drawPlatform() {
