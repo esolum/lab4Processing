@@ -1,4 +1,4 @@
-static int x, y;
+static int x, y = 450;
 static int w, h;
 static int ww, hh;
 static int gw, gh;
@@ -7,6 +7,9 @@ final static byte dx = 5;
 
 static boolean left, right, up;
 static boolean jumping = false;
+
+static int gravity = 4;
+static int vY;
 
 PImage bg;
 
@@ -31,6 +34,7 @@ void draw() {
 void keyPressed() {
   final int k = keyCode;
   setDirection(k, true);
+ 
 }
 
 void keyReleased() {
@@ -44,12 +48,19 @@ void keyReleased() {
     dir = Direction.RIGHT_STANDING;
   }
   
-  
+  if (keyCode == UP) {   
+     if (vY < 6) {
+        vY = -6; 
+     }
+  }
 }
 
 static final void setDirection(int k, boolean decision) {
   if (k == UP && !jumping) {
-    jumping = true;
+    vY = -45;
+    if (y <= 100) {
+      jumping = true;
+    }
   }
   else if(k == LEFT) {
     dir = Direction.LEFT;
@@ -64,11 +75,20 @@ static final void setDirection(int k, boolean decision) {
 
 static final void moveObject() {
   x += (dir == Direction.RIGHT? dx : 0) - (dir == Direction.LEFT? dx : 0);
+  
+  vY += gravity;
+  y += vY;
+  
+  if (y > 450) {
+     y = 450;
+     vY = 0;
+     jumping = false;
+  }
 }
 
 static final void confineToEdges() {
   x = constrain(x, 0, 720);
-  y = constrain(y, 450, 600);
+  y = constrain(y, 100, 600);
 }
 
 void displayObject() {
