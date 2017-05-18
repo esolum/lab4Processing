@@ -78,4 +78,22 @@ class Pig {
       image(standingRight, xPos, yPos);
     }
   }
+  
+  void drawJumping(int xPos, int yPos, Direction dir) {
+    if(dir == Direction.UP_LEFT) {
+      image(jumpLeftUp, xPos, yPos);
+    }
+    else if (dir == Direction.UP_RIGHT) {
+      image(jumpRightUp, xPos, yPos);
+    }
+    
+    if(dir == Direction.DOWN_LEFT) {
+      image(jumpLeftDown, xPos, yPos);
+    }
+    else if (dir == Direction.DOWN_RIGHT) {
+      image(jumpRightDown, xPos, yPos);
+    }
+    
+    
+  }
 }
