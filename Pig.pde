@@ -18,16 +18,16 @@ class Pig {
   int walkSpeed;
   
   Pig(int accLevel) {
-    standingLeft = loadImage("images/pigSprites/standingLeft.png");
-    standingRight = loadImage("images/pigSprites/standingRight.png");
-    walkingLeft = loadImage("images/pigSprites/walkLeft1.png");
-    walkingRight = loadImage("images/pigSprites/walkRight1.png");
-    walkingLeft2 = loadImage("images/pigSprites/walkLeft2.png");
-    walkingRight2 = loadImage("images/pigSprites/walkRight2.png");
-    jumpRightUp = loadImage("images/pigSprites/jumpRight1.png");
-    jumpRightDown = loadImage("images/pigSprites/jumpRight2.png");
-    jumpLeftUp = loadImage("images/pigSprites/jumpLeft1.png");
-    jumpLeftDown = loadImage("images/pigSprites/jumpLeft2.png");
+    standingLeft = loadImage("standingLeft.png");
+    standingRight = loadImage("standingRight.png");
+    walkingLeft = loadImage("walkLeft1.png");
+    walkingRight = loadImage("walkRight1.png");
+    walkingLeft2 = loadImage("walkLeft2.png");
+    walkingRight2 = loadImage("walkRight2.png");
+    jumpRightUp = loadImage("jumpRight1.png");
+    jumpRightDown = loadImage("jumpRight2.png");
+    jumpLeftUp = loadImage("jumpLeft1.png");
+    jumpLeftDown = loadImage("jumpLeft2.png");
     leftCounter = 0;
     rightCounter = 0;
     walkSpeed = 20;
@@ -71,7 +71,7 @@ class Pig {
   }
   
   void drawStanding(float xPos, float yPos, Direction dir) {
-    if(dir == Direction.LEFT_STANDING) {
+    if(dir == Direction.LEFT_STANDING || dir == Direction.DOWN_LEFT ||  dir == Direction.LEFT) {
       image(standingLeft, xPos, yPos);
     }
     else {

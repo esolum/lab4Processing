@@ -22,8 +22,8 @@ static Direction dir;
 
 void setup() {
   size(800, 600);
-  frameRate(30);
-  bg = loadImage("images/magic.jpeg");
+  frameRate(24);
+  bg = loadImage("magic.jpeg");
   pig = new Pig(0);
   dir = Direction.RIGHT_STANDING;
   jumping = false;
@@ -111,6 +111,7 @@ static final void moveObject() {
      jumping = false;
      if(leftPressed) dir = Direction.LEFT;
      else if(rightPressed) dir = Direction.RIGHT;
+     
      //down = false;
      
   }
